@@ -112,7 +112,7 @@ $total_kriteria = $row_1['count'];
                   <div>
                      <h2>User Name</h2>
                      <h4>213123123</h4>
-                     <p>aasdadd</p>
+                     <p>SPK PEMILIHAN</p>
                   </div>
                </div>
             </div>
