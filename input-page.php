@@ -1,3 +1,4 @@
+<!-- hal hasil bobot -->
 <?php
 include './componen/header.php';
 include './process/koneksi.php';
@@ -38,7 +39,7 @@ include './process/koneksi.php';
                      <thead class="thead-light">
                         <tr>
                            <th scope="col">Name</th>
-                           <th scope="col">Baterai</th>
+                           <th scope="col">Display</th>
                            <th scope="col">Processor</th>
                            <th scope="col">Memory</th>
                            <th scope="col">Penyimpanan</th>
@@ -62,7 +63,7 @@ include './process/koneksi.php';
                               </td>
                               <td>
                                  <?php
-                                 $value = $data['bat_nilai'];
+                                 $value = $data['display_nilai'];
 
                                  if ($value < 1 && $value > 0) {
                                     $inverse = round(1 / $value, 2);
@@ -147,7 +148,7 @@ include './process/koneksi.php';
                               </td>
                               <td>
                                  <?php
-                                 $total_nilai = $data['bat_nilai'] + $data['proc_nilai'] + $data['memo_nilai'] + $data['penyim_nilai'] + $data['berat_nilai'];
+                                 $total_nilai = $data['display_nilai'] + $data['proc_nilai'] + $data['memo_nilai'] + $data['penyim_nilai'] + $data['berat_nilai'];
 
                                  $update_query_total = "UPDATE laptop SET total_nilai = '$total_nilai' WHERE laptop_id = '{$data['laptop_id']}'";
                                  mysqli_query($connect, $update_query_total);

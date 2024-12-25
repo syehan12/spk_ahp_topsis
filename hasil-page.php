@@ -1,3 +1,5 @@
+<!-- hal hasil perhitungan // tabel nilai laptop dan normalisasi -->
+
 <?php
 include './componen/header.php';
 include './process/koneksi.php';
@@ -38,7 +40,7 @@ include './process/koneksi.php';
                      <thead class="thead-light">
                         <tr>
                            <th scope="col">Name</th>
-                           <th scope="col">Baterai</th>
+                           <th scope="col">Display</th>
                            <th scope="col">Processor</th>
                            <th scope="col">Memory</th>
                            <th scope="col">Penyimpanan</th>
@@ -50,7 +52,7 @@ include './process/koneksi.php';
                         <?php
                         // Step 1: Fetch data and calculate total values in one loop
                         $totals = [
-                           'bat_nilai' => 0,
+                           'display_nilai' => 0,
                            'proc_nilai' => 0,
                            'memo_nilai' => 0,
                            'penyim_nilai' => 0,

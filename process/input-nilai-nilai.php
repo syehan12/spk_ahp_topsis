@@ -1,3 +1,5 @@
+<!-- proces input nilai laptop-->
+
 <?php
 include('koneksi.php');
 
@@ -5,14 +7,14 @@ include('koneksi.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $laptop_id = $_POST['laptop_id'];
     $nama_laptop = mysqli_real_escape_string($connect, $_POST['nama_laptop']);
-    $bat = mysqli_real_escape_string($connect, $_POST['bat']);
+    $display = mysqli_real_escape_string($connect, $_POST['display']);
     $proc = mysqli_real_escape_string($connect, $_POST['proc']);
     $memo = mysqli_real_escape_string($connect, $_POST['memo']);
     $penyim = mysqli_real_escape_string($connect, $_POST['penyim']);
     $berat = mysqli_real_escape_string($connect, $_POST['berat']);
 
 
-    $query = "UPDATE laptop SET nama_laptop = '$nama_laptop', bat = '$bat', proc = '$proc', memo = '$memo', penyim = '$penyim', berat = '$berat' WHERE laptop_id = '$laptop_id'";
+    $query = "UPDATE laptop SET nama_laptop = '$nama_laptop', display = '$display', proc = '$proc', memo = '$memo', penyim = '$penyim', berat = '$berat' WHERE laptop_id = '$laptop_id'";
     $result = mysqli_query($connect, $query);
 
     if ($result) {

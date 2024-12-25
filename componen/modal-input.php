@@ -1,3 +1,4 @@
+<!-- modal nilai input laptop -->
 <div class="modal fade" id="input-modal<?php echo $data['laptop_id']; ?>" tabindex="-1" aria-labelledby="input-modal-modalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -6,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="text-align: start;">
-                <form id="laptop-form" action="../process/input-nilai-nilai.php" method="POST" enctype="multipart/form-data">
+                <form id="laptop-form" action="./process/input-nilai-nilai.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="laptop_id" value="<?php echo $data['laptop_id']; ?>">
 
                     <div class="mb-3">
@@ -15,8 +16,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="bat" class="form-label">Baterai</label>
-                        <input type="number" class="form-control" id="bat" name="bat" value="<?php echo $data['bat']; ?>" required max="100" oninput="validateInput(this)">
+                        <label for="display" class="form-label">Display</label>
+                        <input type="number" class="form-control" id="display" name="display" value="<?php echo $data['display']; ?>" required max="100" oninput="validateInput(this)">
                     </div>
 
                     <div class="mb-3">

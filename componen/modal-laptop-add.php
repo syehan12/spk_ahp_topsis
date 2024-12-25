@@ -12,8 +12,8 @@
                         <input type="text" class="form-control" id="nama_laptop" name="nama_laptop" required>
                     </div>
                     <div class="mb-3">
-                        <label for="baterai_laptop" class="form-label">Baterai</label>
-                        <input type="text" class="form-control" id="baterai_laptop" name="baterai_laptop" required>
+                        <label for="display_laptop" class="form-label">Display</label>
+                        <input type="text" class="form-control" id="display_laptop" name="display_laptop" required>
                     </div>
                     <div class="mb-3">
                         <label for="procesor_laptop" class="form-label">Processor</label>

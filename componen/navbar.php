@@ -38,10 +38,10 @@ function generate_breadcrumb()
             <a href="./hasil-page.php" class="nav-link font-regular">Normalisasi Kriteria</a>
         </li>
         <li class="nav-item">
-            <a href="../hasil-nilai-page.php" class="nav-link font-regular">Normalisasi Nilai</a>
+            <a href="./hasil-nilai-page.php" class="nav-link font-regular">Normalisasi Nilai</a>
         </li>
         <li class="nav-item">
-            <a href="../hasil-rangking-page.php" class="nav-link active">Hitung Rangking</a>
+            <a href="./hasil-rangking-page.php" class="nav-link active">Hitung Rangking</a>
         </li>
         ';
     } else {

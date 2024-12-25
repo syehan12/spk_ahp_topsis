@@ -1,3 +1,5 @@
+<!-- hasil nilai Bobot / table bobot laptop normalisasi-->
+
 <?php
 include './componen/header.php';
 include './process/koneksi.php';
@@ -33,7 +35,7 @@ include './process/koneksi.php';
                      <thead class="thead-light">
                         <tr>
                            <th scope="col">Name</th>
-                           <th scope="col">Baterai</th>
+                           <th scope="col">Display</th>
                            <th scope="col">Processor</th>
                            <th scope="col">Memory</th>
                            <th scope="col">Penyimpanan</th>
@@ -43,12 +45,12 @@ include './process/koneksi.php';
                      </thead>
                      <tbody>
                         <?php
-                        $total_bat = $total_proc = $total_memo = $total_penyim = $total_berat = 0;
+                        $total_display = $total_proc = $total_memo = $total_penyim = $total_berat = 0;
 
                         // First loop to calculate totals
                         $select = mysqli_query($connect, "SELECT * FROM laptop");
                         while ($data = mysqli_fetch_array($select)) {
-                           $total_bat += $data['bat'];
+                           $total_display += $data['display'];
                            $total_proc += $data['proc'];
                            $total_memo += $data['memo'];
                            $total_penyim += $data['penyim'];
@@ -58,15 +60,15 @@ include './process/koneksi.php';
                         // Second loop to display and normalize
                         mysqli_data_seek($select, 0);
                         while ($data = mysqli_fetch_array($select)) {
-                           $normalized_bat = $data['bat'] / $total_bat;
+                           $normalized_display = $data['display'] / $total_display;
                            $normalized_proc = $data['proc'] / $total_proc;
                            $normalized_memo = $data['memo'] / $total_memo;
                            $normalized_penyim = $data['penyim'] / $total_penyim;
                            $normalized_berat = $data['berat'] / $total_berat;
-                           $total_normalize = $normalized_bat + $normalized_proc + $normalized_memo + $normalized_penyim + $normalized_berat;
+                           $total_normalize = $normalized_display + $normalized_proc + $normalized_memo + $normalized_penyim + $normalized_berat;
 
                            $update_query_v = "UPDATE laptop SET 
-                              normalized_bat = '$normalized_bat', 
+                              normalized_display = '$normalized_display', 
                               normalized_proc = '$normalized_proc',
                               normalized_memo = '$normalized_memo',
                               normalized_penyim = '$normalized_penyim',
@@ -81,7 +83,7 @@ include './process/koneksi.php';
                                        <img alt='...' src='./images/laptop/{$data['profile']}' class='avatar avatar-sm rounded-sm me-2' />
                                        <a class='text-heading font-semibold' href='#'>{$data['nama_laptop']}</a>
                                     </td>
-                                    <td>" . round($data['bat'], 3) . "</td>
+                                    <td>" . round($data['display'], 3) . "</td>
                                     <td>" . round($data['proc'], 3) . "</td>
                                     <td>" . round($data['memo'], 3) . "</td>
                                     <td>" . round($data['penyim'], 3) . "</td>
@@ -90,7 +92,7 @@ include './process/koneksi.php';
                                  </tr>
                                  <tr>
                                     <td><strong>Normalisasi</strong></td>
-                                    <td>" . round($normalized_bat, 3) . "</td>
+                                    <td>" . round($normalized_display, 3) . "</td>
                                     <td>" . round($normalized_proc, 3) . "</td>
                                     <td>" . round($normalized_memo, 3) . "</td>
                                     <td>" . round($normalized_penyim, 3) . "</td>
@@ -101,7 +103,7 @@ include './process/koneksi.php';
                         ?>
                         <tr>
                            <td><strong>Total:</strong></td>
-                           <td><?php echo round($total_bat, 3); ?></td>
+                           <td><?php echo round($total_display, 3); ?></td>
                            <td><?php echo round($total_proc, 3); ?></td>
                            <td><?php echo round($total_memo, 3); ?></td>
                            <td><?php echo round($total_penyim, 3); ?></td>

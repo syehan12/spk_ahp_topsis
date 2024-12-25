@@ -1,3 +1,5 @@
+<!-- model hasil nilai bobot -->
+
 <div class="modal fade" id="nilai-laptop-modal<?php echo $data['laptop_id']; ?>" tabindex="-1" aria-labelledby="nilai-laptop-modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -6,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="text-align: start;">
-                <form id="laptop-form" action="../process/input-nilai-bobot.php" method="POST" enctype="multipart/form-data">
+                <form id="laptop-form" action="./process/input-nilai-bobot.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="laptop_id" value="<?php echo $data['laptop_id']; ?>">
 
                     <div class="mb-3">
@@ -14,15 +16,15 @@
                         <input type="text" class="form-control" id="nama_laptop" name="nama_laptop" value="<?php echo $data['nama_laptop']; ?>" readonly>
                     </div>
 
-                    <!-- Baterai -->
+                    <!-- display -->
                     <div class="mb-3">
-                        <label for="bat_nilai" class="form-label">Baterai</label>
-                        <select class="form-select" id="bat_nilai" name="bat_nilai" aria-label="Default select example" required>
+                        <label for="display_nilai" class="form-label">Display</label>
+                        <select class="form-select" id="display_nilai" name="display_nilai" aria-label="Default select example" required>
                             <option value="">Pilih Nilai</option>
                             <?php
-                            $query_bat = "SELECT * FROM kriteria WHERE kriteria_1='Baterai'";
-                            $result_bat = mysqli_query($connect, $query_bat);
-                            while ($row = mysqli_fetch_assoc($result_bat)) {
+                            $query_display = "SELECT * FROM kriteria WHERE kriteria_1='Display'";
+                            $result_display = mysqli_query($connect, $query_display);
+                            while ($row = mysqli_fetch_assoc($result_display)) {
                                 $value = $row['kriteria_value'];
 
                                 if ($value < 1 && $value > 0) {
@@ -32,7 +34,7 @@
                                     $display_value = $value;
                                 }
 
-                                $selected = ($data['bat_nilai'] == $value) ? 'selected' : '';
+                                $selected = ($data['display_nilai'] == $value) ? 'selected' : '';
                                 echo "<option value='" . $value . "' $selected>" . $row['description'] . " Nilai = (" . $display_value . ")</option>";
                             }
                             ?>

@@ -22,7 +22,7 @@
                         <label for="kriteria_2" class="form-label">Kriteria 2</label>
                         <select class="form-select" id="kriteria_2" name="kriteria_2" aria-label="Default select example" required>
                             <option value="">Pilih Nilai</option>
-                            <option value="Baterai">Baterai</option>
+                            <option value="Display">Display</option>
                             <option value="Processor">Processor</option>
                             <option value="Memory">Memory</option>
                             <option value="Penyimpanan">Penyimpanan</option>

@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result) {
         echo "<script>
                 alert('Berhasil mengedit kriteria');
-                window.location.href = '../edit-page.php';
+                window.location.href = '../kriteria-page.php';
               </script>";
     } else {
         echo "<script>alert('Gagal mengedit kriteria: " . mysqli_error($connect) . "'); window.location.href = '../form_page.php';</script>";

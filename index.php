@@ -1,75 +1,125 @@
 <?php
-session_start();
-include './process/koneksi.php';
-
-if (isset($_GET['pengguna_id'])) {
-   if ($_GET['pengguna_id'] == 'false') {
-      echo "<script>alert('Username / password salah. Gagal masuk.')</script>";
-      header("Location: index.php");
-      exit;
-   } else if ($_GET['pengguna_id'] == 'out') {
-      echo "<script>alert('Anda belum masuk, silahkan masuk.')</script>";
-      header("Location: index.php");
-      exit;
-   } else {
-      echo "<script>alert('Logout berhasil.')</script>";
-      header("Location: index.php");
-      exit;
-   }
-}
-
-if (isset($_POST['submit'])) {
-   $username = mysqli_real_escape_string($connect, $_POST['email']);
-   $password = mysqli_real_escape_string($connect, $_POST['password']);
-
-   $sqllogin = "SELECT * FROM pengguna WHERE username='$username' AND password='$password'";
-   $querylogin = mysqli_query($connect, $sqllogin);
-
-   if (mysqli_num_rows($querylogin) > 0) {
-      $row = mysqli_fetch_assoc($querylogin);
-      $_SESSION['username'] = $username;
-      $_SESSION['nama_pengguna'] = $row['nama_pengguna'];
-      $_SESSION['profile'] = $row['profile'];
-      $_SESSION['stat'] = 'masuk';
-      echo "<script>alert('Berhasil masuk, selamat datang " . $row['nama_pengguna'] . "')</script>";
-      header("Location: landing-page.php");
-      exit;
-   } else {
-      echo "<script>alert('Username/password salah')</script>";
-   }
-}
+include './componen/header.php';
+include './process/koneksi.php'
+?>
+<?php
+// Fetch total customers
+$result = mysqli_query($connect, "SELECT COUNT(*) AS count FROM laptop");
+$row = mysqli_fetch_assoc($result);
+$total_laptop = $row['count'];
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-   <meta charset="UTF-8" />
-   <title>Login</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
-   <link rel="stylesheet" href="./css/login.css" />
-</head>
-
-<body id="particles-js">
-   <div class="animated bounceInDown">
-      <div class="container">
-         <span class="error animated tada" id="msg"></span>
-         <form name="form1" class="box" action="" method="POST">
-            <h4>Admin<span>Dashboard</span></h4>
-            <h5>Sign in to your account.</h5>
-            <input type="text" name="email" placeholder="Email" autocomplete="off" required />
-            <i class="typcn typcn-eye" id="eye"></i>
-            <input type="password" name="password" placeholder="Password" id="pwd" autocomplete="off" required />
-            <a href="./landing-page.php" class="forgetpass">Forget Password?</a>
-            <input type="submit" name="submit" value="Masuk" class="btn1" />
-         </form>
-      </div>
+<?php
+// Fetch total customers
+$result_1 = mysqli_query($connect, "SELECT COUNT(*) AS count FROM kriteria");
+$row_1 = mysqli_fetch_assoc($result_1);
+$total_kriteria = $row_1['count'];
+?>
+<!-- Dashboard -->
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+   <!-- Vertical Navbar -->
+   <?php
+   include './componen/sidebar.php';
+   ?>
+   <!-- Main content -->
+   <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+      <!-- Header -->
+      <?php
+      include './componen/navbar.php';
+      ?>
+      <!-- Main -->
+      <main class="py-6 bg-surface-secondary">
+         <div class="container-fluid">
+            <!-- Card stats -->
+            <div class="row g-6 mb-6">
+               <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card shadow border-0">
+                     <div class="card-body">
+                        <div class="row">
+                           <div class="col">
+                              <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Laptop</span>
+                              <span class="h3 font-bold mb-0"><?php echo $total_laptop ?></span>
+                           </div>
+                           <div class="col-auto">
+                              <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
+                                 <i class="bi bi-laptop"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card shadow border-0">
+                     <div class="card-body">
+                        <div class="row">
+                           <div class="col">
+                              <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Kriteria</span>
+                              <span class="h3 font-bold mb-0"><?php echo $total_kriteria ?></span>
+                           </div>
+                           <div class="col-auto">
+                              <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                 <i class="bi bi-card-checklist"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card shadow border-0">
+                     <div class="card-body">
+                        <div class="row">
+                           <div class="col">
+                              <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Normalisasi Kriteria</span>
+                              <span class="h3 font-bold mb-0">1.169</span>
+                           </div>
+                           <div class="col-auto">
+                              <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                                 <i class="bi bi-clock-history"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-3 col-sm-6 col-12">
+                  <div class="card shadow border-0">
+                     <div class="card-body">
+                        <div class="row">
+                           <div class="col">
+                              <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Normalisasi Nilai</span>
+                              <span class="h3 font-bold mb-0">45.894</span>
+                           </div>
+                           <div class="col-auto">
+                              <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
+                                 <i class="bi bi-minecart-loaded"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="card shadow border-0 mb-7">
+               <div class="card-header">
+                  <h5 class="mb-0">About</h5>
+               </div>
+               <div class="card-body d-flex align-items-center">
+                  <div class="me-4">
+                     <img src="./images/about.jpg" alt="About Us" style="border-radius: 50%; width: 300px;">
+                  </div>
+                  <div>
+                     <h2>User Name</h2>
+                     <h4>213123123</h4>
+                     <p>asdadadasdsad</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
    </div>
-   <script src="https://cldup.com/S6Ptkwu_qA.js"></script>
-   <script src="./js/login.js"></script>
-</body>
-
-</html>
+</div>
+<?php
+include './componen/script.php';
+?>

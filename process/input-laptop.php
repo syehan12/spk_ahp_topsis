@@ -4,7 +4,7 @@ include("koneksi.php");
 if (isset($_POST['submit'])) {
     // Mengambil data dari form
     $nama_laptop = $_POST['nama_laptop'];
-    $baterai_laptop = $_POST['baterai_laptop'];
+    $display_laptop = $_POST['display_laptop'];
     $procesor_laptop = $_POST['procesor_laptop'];
     $memori_laptop = $_POST['memori_laptop'];
     $penyimpanan_laptop = $_POST['penyimpanan_laptop'];
@@ -63,8 +63,8 @@ if (isset($_POST['submit'])) {
     $laptop_id = 'LAP' . $random_number;
 
     // Query untuk memasukkan data ke dalam tabel laptop
-    $sql = "INSERT INTO laptop (laptop_id, nama_laptop, baterai_laptop, procesor_laptop, memori_laptop, penyimpanan_laptop, berat_laptop, profile) 
-            VALUES ('$laptop_id', '$nama_laptop', '$baterai_laptop', '$procesor_laptop', '$memori_laptop', '$penyimpanan_laptop', '$berat_laptop', '$profile_name')";
+    $sql = "INSERT INTO laptop (laptop_id, nama_laptop, display_laptop, procesor_laptop, memori_laptop, penyimpanan_laptop, berat_laptop, profile) 
+            VALUES ('$laptop_id', '$nama_laptop', '$display_laptop', '$procesor_laptop', '$memori_laptop', '$penyimpanan_laptop', '$berat_laptop', '$profile_name')";
 
     $query = mysqli_query($connect, $sql);
 

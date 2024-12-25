@@ -17,16 +17,6 @@ include './process/koneksi.php';
       ?>
       <!-- Main -->
       <main class="py-6 bg-surface-secondary">
-         <div class="col-sm-6 mb-6 col-12 text-sm-end text-end">
-            <div class="mx-n1">
-               <a href="./process/print.php" target="_blank" type="button" class="btn btn-primary" class="btn d-inline-flex btn-sm btn-success mx-1">
-                  <span class="pe-2">
-                     <i class="bi bi-printer"></i>
-                  </span>
-                  <span>Print</span>
-               </a>
-            </div>
-         </div>
          <div class="container-fluid">
             <!-- Card stats -->
             <div class="card shadow border-0 mb-7">
@@ -40,7 +30,7 @@ include './process/koneksi.php';
                            <th scope="col">Name</th>
                            <th scope="col">Rangking</th>
                            <th></th>
-                           <th scope="col">Baterai</th>
+                           <th scope="col">Display</th>
                            <th scope="col">Processor</th>
                            <th scope="col">Memory</th>
                            <th scope="col">Penyimpanan</th>
@@ -50,7 +40,7 @@ include './process/koneksi.php';
                      </thead>
                      <tbody>
                         <?php
-                        $total_bat = 0;
+                        $total_display = 0;
                         $total_proc = 0;
                         $total_memo = 0;
                         $total_penyim = 0;
@@ -76,7 +66,7 @@ include './process/koneksi.php';
                               <td><strong>Normalisasi Nilai</strong></td>
                               <td>
                                  <?php
-                                 echo round($data['normalized_bat'], 3);
+                                 echo round($data['normalized_display'], 3);
                                  ?>
                               </td>
                               <td>
@@ -101,7 +91,7 @@ include './process/koneksi.php';
                               </td>
                               <td rowspan="2">
                                  <?php
-                                 $nilai_ranking = ($data['normalized_bat'] * $data['normalized_bat_nilai']) + ($data['normalized_proc'] * $data['normalized_proc_nilai']) + ($data['normalized_memo'] * $data['normalized_memo_nilai']) + ($data['normalized_penyim'] * $data['normalized_penyim_nilai']) + ($data['normalized_berat'] * $data['normalized_berat_nilai']);
+                                 $nilai_ranking = ($data['normalized_display'] * $data['normalized_display_nilai']) + ($data['normalized_proc'] * $data['normalized_proc_nilai']) + ($data['normalized_memo'] * $data['normalized_memo_nilai']) + ($data['normalized_penyim'] * $data['normalized_penyim_nilai']) + ($data['normalized_berat'] * $data['normalized_berat_nilai']);
                                  $update_query_nilai_ranking = "UPDATE laptop SET nilai_ranking = '$nilai_ranking' WHERE laptop_id = '{$data['laptop_id']}'";
                                  mysqli_query($connect, $update_query_nilai_ranking);
                                  echo round($data['nilai_ranking'], 3);
@@ -112,7 +102,7 @@ include './process/koneksi.php';
                               <td><strong>Normalisasi Kriteria Bobot</strong></td>
                               <td>
                                  <?php
-                                 echo round($data['normalized_bat_nilai'], 3);
+                                 echo round($data['normalized_display_nilai'], 3);
                                  ?>
                               </td>
                               <td>

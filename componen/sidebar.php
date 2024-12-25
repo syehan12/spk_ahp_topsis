@@ -6,7 +6,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-            <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" alt="..." />
+            <h1>SPK AHP</h1>
         </a>
         <!-- User menu (mobile) -->
         <div class="navbar-user d-lg-none">
@@ -34,13 +34,13 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="./landing-page.php">
+                    <a class="nav-link" href="./index.php">
                         <i class="bi bi-house"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./laptop-page.php">
-                        <i class="bi bi-bar-chart"></i> Laptop
+                        <i class="bi bi-bar-chart"></i> Alternatif Laptop
                     </a>
                 </li>
                 <li class="nav-item">
@@ -55,7 +55,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="input-page.php">
-                        <i class="bi bi-people"></i> Input Nilai
+                        <i class="bi bi-people"></i> Hasil Nilai Bobot
                     </a>
                 </li>
                 <li class="nav-item">
@@ -70,14 +70,6 @@
                 </li>
             </ul>
             <hr class="navbar-divider my-5 opacity-20" />
-            <!-- User (md) -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="./process/proses_logout.php">
-                        <i class="bi bi-box-arrow-left"></i> Logout
-                    </a>
-                </li>
-            </ul>
         </div>
     </div>
 </nav>

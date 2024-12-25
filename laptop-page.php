@@ -1,3 +1,6 @@
+
+<!-- halaman Alternatif laptop-->
+
 <?php
 include './componen/header.php';
 include './process/koneksi.php';
@@ -38,7 +41,7 @@ include './process/koneksi.php';
                      <thead class="thead-light">
                         <tr>
                            <th scope="col">Name</th>
-                           <th scope="col">Baterai</th>
+                           <th scope="col">Display</th>
                            <th scope="col">Processor</th>
                            <th scope="col">Memory</th>
                            <th scope="col">Penyimpanan</th>
@@ -59,7 +62,7 @@ include './process/koneksi.php';
                                     <?php echo $data['nama_laptop']; ?>
                                  </a>
                               </td>
-                              <td><?php echo $data['baterai_laptop']; ?></td>
+                              <td><?php echo $data['display_laptop']; ?></td>
                               <td>
                                  <p class="text-heading font-semibold">
                                     <?php echo $data['procesor_laptop']; ?>

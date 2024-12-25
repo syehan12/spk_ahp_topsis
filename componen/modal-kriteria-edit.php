@@ -15,7 +15,7 @@
                         <label for="kriteria_1" class="form-label">Kriteria 1</label>
                         <select class="form-select" id="kriteria_1" name="kriteria_1" required>
                             <option value="">Pilih Kriteria</option>
-                            <option value="Baterai" <?php echo ($data['kriteria_1'] == 'Baterai') ? 'selected' : ''; ?>>Baterai</option>
+                            <option value="Display" <?php echo ($data['kriteria_1'] == 'Display') ? 'selected' : ''; ?>>Display</option>
                             <option value="Processor" <?php echo ($data['kriteria_1'] == 'Processor') ? 'selected' : ''; ?>>Processor</option>
                             <option value="Memory" <?php echo ($data['kriteria_1'] == 'Memory') ? 'selected' : ''; ?>>Memory</option>
                             <option value="Penyimpanan" <?php echo ($data['kriteria_1'] == 'Penyimpanan') ? 'selected' : ''; ?>>Penyimpanan</option>
@@ -28,7 +28,7 @@
                         <label for="kriteria_2" class="form-label">Kriteria 2</label>
                         <select class="form-select" id="kriteria_2" name="kriteria_2" required>
                             <option value="">Pilih Kriteria</option>
-                            <option value="Baterai" <?php echo ($data['kriteria_2'] == 'Baterai') ? 'selected' : ''; ?>>Baterai</option>
+                            <option value="Display" <?php echo ($data['kriteria_2'] == 'Display') ? 'selected' : ''; ?>>Display</option>
                             <option value="Processor" <?php echo ($data['kriteria_2'] == 'Processor') ? 'selected' : ''; ?>>Processor</option>
                             <option value="Memory" <?php echo ($data['kriteria_2'] == 'Memory') ? 'selected' : ''; ?>>Memory</option>
                             <option value="Penyimpanan" <?php echo ($data['kriteria_2'] == 'Penyimpanan') ? 'selected' : ''; ?>>Penyimpanan</option>

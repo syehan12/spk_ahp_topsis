@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" style="text-align: start;">
-                <form id="laptop-form" action="../process/edit-laptop.php" method="POST" enctype="multipart/form-data">
+                <form id="laptop-form" action="./process/edit-laptop.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="laptop_id" value="<?php echo $data['laptop_id']; ?>">
 
                     <div class="mb-3">
@@ -15,8 +15,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="baterai_laptop" class="form-label">Baterai</label>
-                        <input type="text" class="form-control" id="baterai_laptop" name="baterai_laptop" value="<?php echo $data['baterai_laptop']; ?>" required>
+                        <label for="display_laptop" class="form-label">Display</label>
+                        <input type="text" class="form-control" id="display_laptop" name="display_laptop" value="<?php echo $data['display_laptop']; ?>" required>
                     </div>
 
                     <div class="mb-3">

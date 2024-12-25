@@ -39,7 +39,7 @@ include './process/koneksi.php';
                         <tr>
                            <th scope="col">Name</th>
                            <th></th>
-                           <th scope="col">Baterai</th>
+                           <th scope="col">Display</th>
                            <th scope="col">Processor</th>
                            <th scope="col">Memory</th>
                            <th scope="col">Penyimpanan</th>
@@ -49,7 +49,7 @@ include './process/koneksi.php';
                      </thead>
                      <tbody>
                         <?php
-                        $total_bat = 0;
+                        $total_display = 0;
                         $total_proc = 0;
                         $total_memo = 0;
                         $total_penyim = 0;
@@ -70,7 +70,7 @@ include './process/koneksi.php';
                               <td><strong>Normalisasi Nilai</strong></td>
                               <td>
                                  <?php
-                                 echo round($data['normalized_bat'], 3);
+                                 echo round($data['normalized_display'], 3);
                                  ?>
                               </td>
                               <td>
@@ -95,7 +95,7 @@ include './process/koneksi.php';
                               </td>
                               <td rowspan="2">
                                  <?php
-                                 $nilai_ranking = ($data['normalized_bat'] * $data['normalized_bat_nilai']) + ($data['normalized_proc'] * $data['normalized_proc_nilai']) + ($data['normalized_memo'] * $data['normalized_memo_nilai']) + ($data['normalized_penyim'] * $data['normalized_penyim_nilai']) + ($data['normalized_berat'] * $data['normalized_berat_nilai']);
+                                 $nilai_ranking = ($data['normalized_display'] * $data['normalized_display_nilai']) + ($data['normalized_proc'] * $data['normalized_proc_nilai']) + ($data['normalized_memo'] * $data['normalized_memo_nilai']) + ($data['normalized_penyim'] * $data['normalized_penyim_nilai']) + ($data['normalized_berat'] * $data['normalized_berat_nilai']);
                                  $update_query_nilai_ranking = "UPDATE laptop SET nilai_ranking = '$nilai_ranking' WHERE laptop_id = '{$data['laptop_id']}'";
                                  mysqli_query($connect, $update_query_nilai_ranking);
                                  echo round($data['nilai_ranking'], 3);
@@ -106,7 +106,7 @@ include './process/koneksi.php';
                               <td><strong>Normalisasi Kriteria Bobot</strong></td>
                               <td>
                                  <?php
-                                 echo round($data['normalized_bat_nilai'], 3);
+                                 echo round($data['normalized_display_nilai'], 3);
                                  ?>
                               </td>
                               <td>
