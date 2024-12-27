@@ -79,7 +79,11 @@ include './process/koneksi.php';
 
                               <td><?php echo $data['description']; ?></td>
                               <td class="text-end">
-                                 <a href="#edit-kriteria-modal<?php echo $data['id_kiteria']; ?>" type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"><i class="bi bi-pencil-square"></i></a>
+                                 
+                              <a href="#edit-kriteria-modal<?php echo $data['id_kiteria']; ?>" type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"><i class="bi bi-pencil-square"></i></a>
+                                 <a href="./process/hapus-kriteria.php?id_kriteria=<?php echo $data['id_kriteria']; ?>" type="button" class="btn btn-sm btn-outline-danger">
+                                    <i class="bi bi-trash"></i>
+                                 </a>
                                  <?php
                                  include './componen/modal-kriteria-edit.php';
                                  ?>

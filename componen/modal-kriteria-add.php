@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="kriteria-form" action="../process/input-kriteria.php" method="POST" enctype="multipart/form-data">
+                <form id="kriteria-form" action="./process/input-kriteria.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="kriteria_1" class="form-label">Kriteria 1</label>
                         <select class="form-select" id="kriteria_1" name="kriteria_1" aria-label="Default select example" required>
