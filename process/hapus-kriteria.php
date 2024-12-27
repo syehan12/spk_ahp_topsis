@@ -2,9 +2,9 @@
 session_start();
 include 'koneksi.php';
 
-if (isset($_GET['id_kriteria'])) {
-    $id_kriteria = $_GET['id_kriteria'];
-    $result = mysqli_query($connect, "DELETE FROM kriteria WHERE id_kriteria = '$id_kriteria'");
+if (isset($_GET['id_kiteria'])) {
+    $id_kiteria = $_GET['id_kiteria'];
+    $result = mysqli_query($connect, "DELETE FROM kriteria WHERE id_kiteria = '$id_kiteria'");
 
     if ($result) {
         echo "<script>

@@ -81,7 +81,7 @@ include './process/koneksi.php';
                               <td class="text-end">
                                  
                               <a href="#edit-kriteria-modal<?php echo $data['id_kiteria']; ?>" type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"><i class="bi bi-pencil-square"></i></a>
-                                 <a href="./process/hapus-kriteria.php?id_kriteria=<?php echo $data['id_kriteria']; ?>" type="button" class="btn btn-sm btn-outline-danger">
+                                 <a href="./process/hapus-kriteria.php?id_kiteria=<?php echo $data['id_kiteria']; ?>" type="button" class="btn btn-sm btn-outline-danger">
                                     <i class="bi bi-trash"></i>
                                  </a>
                                  <?php
